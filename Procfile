@@ -1,1 +1,1 @@
-web: gunicorn golftips:wsgi
+web: gunicorn golftips.wsgi
