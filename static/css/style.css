@@ -1,0 +1,181 @@
+body {
+    background-color: #fff;
+}
+
+.nav-golf{
+    color: #FDDA0D;
+    font-size: 40px;
+}
+
+.tips-nav {
+    color: #fff;
+    font-size: 40px;
+}
+
+.nav-link {
+    color: #FDDA0D!important;
+}
+
+.nav-link:hover,
+.nav-link:active {
+    color: #fff!important;
+}
+
+.toggle-link {
+    color: #FDDA0D;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.light-bg {
+    background-color: #fff;
+}
+
+.dark-bg {
+    background-color: #058c42;
+}
+
+.main-bg {
+    background-color: #058c42;
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: #fff;
+}
+
+.author {
+    color: 	darkslategray;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: #445261;
+    color: white;
+    position: relative;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #445261;
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #fff;
+}
+
+.post-link:hover,
+.page-link {
+    color: #445261;
+}
+
+.post-title {
+    margin-top: 20%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
+}
+
+.btn-close {
+    float: right;
+}
+
+.btn-signup {
+    background-color: #23BBBB;
+    color: #fff;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #23BBBB;
+}
+
+.link {
+    color: #FDDA0D;
+    text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.btn-like {
+    color: #fff;
+    border: none;
+    background: transparent;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: #FDDA0D;
+    background: transparent;
+    border: none;
+}
+
+.likes {
+    color: #fff;
+}
+
+.text-muted {
+    color: #fff!important;
+}
+
+p {
+    color: #fff;
+}
+
+.alert-success {
+    color: #0f5132;
+    background-color: rgba(255, 252, 157, 1);
+    border-color: #FDDA0D;
+}
+
+.white-text {
+    color: #fff;
+    text-decoration: none;
+}
