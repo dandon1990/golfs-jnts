@@ -50,6 +50,8 @@ body {
     position: relative;
 }
 
+
+
 .image-flash {
     position: absolute;
     bottom: 5%;
@@ -81,7 +83,7 @@ body {
 
 .masthead-image {
     position: relative;
-    overflow: hidden;
+    width: 100%;
 }
 
 .masthead-image:after {
@@ -175,3 +177,4 @@ p {
     color: #fff;
     text-decoration: none;
 }
+

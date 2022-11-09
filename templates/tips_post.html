@@ -12,14 +12,6 @@
                 <!-- Postpost_detail author goes before the | the post_detail's created date goes after -->
                 <p class="post-subtitle">{{ post.author }} | {{ post.created }}</p>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="https://res.cloudinary.com/dochkwthb/image/upload/v1667923780/golf_instructor_cltelc.jpg" width="100%">
-                {% else %}
-                <img src="{{ post.featured_image.url }}" alt="Featured Image" width="100%">
-                {% endif %}
-            </div>
         </div>
     </div>
 </div>
