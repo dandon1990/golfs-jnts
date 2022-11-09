@@ -17,7 +17,7 @@
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="https://res.cloudinary.com/dochkwthb/image/upload/v1667923780/golf_instructor_cltelc.jpg" width="100%">
                 {% else %}
-                <img src="" width="100%">
+                <img src="{{ post.featured_image.url }}" alt="Featured Image" width="100%">
                 {% endif %}
             </div>
         </div>

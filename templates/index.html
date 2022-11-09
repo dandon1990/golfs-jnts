@@ -15,9 +15,9 @@
                             <div class="image-container">
                                 {% if "placeholder" in tipspost.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://res.cloudinary.com/dochkwthb/image/upload/v1667923780/golf_instructor_cltelc.jpg">
+                                    src="https://res.cloudinary.com/dochkwthb/image/upload/v1667923780/golf_instructor_cltelc.jpg" alt="Placeholder Image">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                                <img class="card-img-top" src=" {{ tipspost.featured_image.url }}" alt="Featured Image">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Written by: {{ tipspost.author }}</p>
@@ -27,7 +27,7 @@
                                 <h2 class="card-title">{{ tipspost.title }}</h2>
                                 <p class="card-text">{{ tipspost.get_part_of_game_display }} Game</p>
                             </a>
-                            <hr />
+                            <hr>
                             <p class="card-text likes text-muted h6">{{ tipspost.created_on}} <i class="far fa-heart likes"></i>
                                 {{ tipspost.number_of_likes }}</p>
                             <div class="col-2">

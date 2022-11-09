@@ -5,10 +5,12 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Published"))
 GAME_PART = ((0, "Long"), (1, "Short"), (2, "Putting"))
 
+
 class TipsPost(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='blog_posts')
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
     featured_image = CloudinaryField('Feautured Image', default='placeholder')
@@ -32,8 +34,10 @@ class TipsPost(models.Model):
     def long_or_short(self):
         return self.part_of_game
 
+
 class Comment(models.Model):
-    post = models.ForeignKey(TipsPost, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(
+        TipsPost, on_delete=models.CASCADE, related_name='comments')
     name = models.CharField(max_length=100)
     email = models.EmailField()
     body = models.TextField()
@@ -45,5 +49,3 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
-    
-
