@@ -1,108 +1,199 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# TiGOLF 
 
-Welcome dandon1990,
+TiGOLF is a golf tips page where golfers can create an account and view different tips and can like and comment on the tips 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[Here is a live link to the app](https://golf-jnts.herokuapp.com/)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![App Title](/Assets/Documentation/deedee.png)
 
-## Gitpod Reminders
+## How to use the Site
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The Site is designed for golfers of all levels. It is a site they can visit and look at Tips and instruction for better technique. The user can register for an account and then interact with the posts. They can interact with them by commenting on them and liking them if the choose to do so. As user you will be able to comment on the post and it will then be approved by an Admin member. If a user wishes to update their comments the can so by using the Edit Button. If they choose remove their comment for some reason, they can so by using the delete button.
 
-`python3 -m http.server`
+Here is a flow of how the app should work.
 
-A blue button should appear to click: _Make Public_,
+![Flow Diagram](/Assets/Documentation/flow_diagram.png)
 
-Another blue button should appear to click: _Open Browser_.
+## Features
+* The site features posts that include: 
+    * On the Home page the site displays all of the different Tips that have been posted.
+    * The posts also have the details of who wrote them and which part of the game it is aimed at whether it (Long game, Short game, Putting)
+    
+    * Post features include:
+        * Title of what is being taught.
+        * Image of the stance that should be taken when playing the shot.
+        * Details explaing the image and how to achieve the desire stance and what it should feel like.
+        * Image of the swing to take when playing the particular shot.
+        * An explanation of how long the swing should be and what the tempo should be.
+        * A Comments section for users to read the conversation.
+        * The ability to Edit and Delete their on comments.
+        
+<br>
+* The site’s home page Displays the most recent posts at the top of the page and then works back down the page in order of when they were created. At the top of the home page there is a navigation bar where the user can choose to register for an account if it’s their first time using the site or choose to login if they already have an account. There is also the option to sign-out after the user is logged in as well as the home button to take you back to the main page.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+![Shaft Flex Calculating](/Assets/Documentation/flex_calcualtion.png)
 
-A blue button should appear to click: _Make Public_,
+* The app updates a google sheet with all the all of the User's inputs and the recommendations for club and shaft types.
+![Google sheet of user input](/Assets/Documentation/google_sheet.png)  
 
-Another blue button should appear to click: _Open Browser_.
+* This can be really helpful to golf instructors and golf club fitters as it would let them see in advanced what kind of clubs a player would be able to use. 
+* It can be good for data analysis to see what playing ability uses what shaft and type of club as well as average distances.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+* The app uses validation and error-checking for all of the users inputs:
+    * Names can't have numbers or special characters
+    * Handicaps have to be within the limits of the R&A and USGA governing bodies of maximum 54.
+    * Player must pick between certain distances on the 3 distances asked for to keep silly answers being out into the app.
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Testing
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+I have manually tested this project by doing the following:
 
-------
+* Given invalid inputs when asked for user's name:
+    * Entered nothing when name was reuested
+    * Entered numbers when the name was requested e.g(12345678890)
+    * Entered special characters when the name was requested e.g(,.<>/?\|;:@'[]{})
+* Each time an invalid input was entered into the Name request I expected to see an Error message to say that name couldn't be entered and this is what I seen.
 
-## Release History
+![Name Validation](/Assets/Documentation/name_valid.png)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+* Given invalid inputs when asked for the User's Handicap:
+    * Entered a value higher than 54
+    * Entered a value lower than 1
+* Both times I expected to see an Error messsage saying that it was an invalid data input:
+    * Too high for values over 54
+    * Too Low for values under 1
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+![Handicap Validation](/Assets/Documentation/handicap_valid.png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+* Invalid inputs were also given for Pitching Wedge distance:
+    * Too high (any values over 170 yards)
+    * Too low (any values under 90 yards)
+* Both times I expected to see an Error messsage saying that it was an invalid data input:
+    * Too high for values over 170
+    * Too Low for values under 90
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+![Pitching Wedge Validation](/Assets/Documentation/pwedge_valid.png)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+* Invalid inputs were also given for 6 Iron distance:
+    * Too high (any values over 220 yards)
+    * Too low (any values under 130 yards)
+* Both times I expected to see an Error messsage saying that it was an invalid data input:
+    * Too high for values over 220
+    * Too Low for values under 130
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+![Six Iron Validation](/Assets/Documentation/six_iron_valid.png)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+* Invalid inputs were also given for Driver distance:
+    * Too high (any values over 350 yards)
+    * Too low (any values under 190 yards)
+* Both times I expected to see an Error messsage saying that it was an invalid data input:
+    * Too high for values over 350
+    * Too Low for values under 130
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![Driver Distance Vaildation](/Assets/Documentation/driver_valid.png)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+* I also done manual testing to make sure all the outcomes would be accurate for different combinations of inputs.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+* I tested a difference of less than 56 yards between 6 iron and pitching wedge distances.
+    * My expected result result was Cavity Backs
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+        ![Cavity test](/Assets/Documentation/cav_test.png)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+* I tested a difference of more than 55 yards between 6 iron and pitching wedge distances but with the 6 iron distance less then 190.
+    * My expected result was Combo Set
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+        ![Combo test](/Assets/Documentation/combo_test.png)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+* I tested a difference of more than 55 yards between 6 iron and pitching wedge distances but with the 6 iron distance more then 190.
+    * My expected result was Blades
 
-------
+        ![Blades test](/Assets/Documentation/blade_test.png)
 
-## FAQ about the uptime script
+* I done testing to make sure that there are different outcomes for shaft flex:
 
-**Why have you added this script?**
+    * I tested with different Driver distances of:
+        * Less than 213
+        * Between 213 - 262
+        * More then 262
+    
+    The reason these distances were tested is that they correspond to the different clubhead speeds in the function that chooses the flex of shaft for the user.
+    
+    * My expected result of distances less than 213 were Regular
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+        ![Regular test](/Assets/Documentation/reg_test.png) 
 
-**How will this affect me?**
+    * My expected result of distances between 213 and 262 was Stiff
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+        ![Stiff test](/Assets/Documentation/stiff_test.png)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+    * My expected result of distances more than 262 was Extra-Stiff
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+        ![Extra test](/Assets/Documentation/extra_test.png)
 
-**So….?**
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Bugs
 
-**Can I opt out?**
+#### Solved Bugs 
+* I had an issue with line length when first passing the code through PEP8. A lot of f strings were too long (> 79 characters).
+I solved this through breaking them up into multiple f strings.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+#### Remaing Bug
+* No bugs remaining
+    
+#### Validator Testing
+* No errors were found when running the code through [PEP8](http://pep8online.com/)
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+## Technologies
 
-**Anything more?**
+* [Heroku](https://www.heroku.com/)
+* [Python](https://www.python.org/)
+* [Pip](https://pypi.org/project/pip/)
+* [colorama](https://pypi.org/project/colorama/)
+* [Pyfiglet](https://pypi.org/project/pyfiglet/0.7/)
+* [Git](https://git-scm.com/)
+* [Githib](https://github.com/)
+* [Gitpod](https://gitpod.io/)
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+## Deployment
+* Create an account or log in at [Heroku](https://www.heroku.com/)
+* Create new app, 
+    * Add a unique name for your app (this app is called 'deedees-fitting-app')
+    * Choose your region
 
----
+* Click on Create New App
+* Navigate to the Settings tab
+* Under Config Vars store any sensitive data you saved in .json file. 
+    * Add a Key - CREDS, then copy the .json file and paste it into Value field 
+    * Add a Key - PORT and a Value 8000
+* Add buildpacks: 
+    * Add Python, then save changes
+    * Add Nodejs, then save changes
+    * Ensure Python is first and Nodejs second
 
-Happy coding!
+* Navigate to Deploy tab
+    * From Deployment Method select Github
+    * Connect to Github
+    * Search for repository name (club-shaft-fitter)
+    * Click 'Connect'
+    * Select 'Enable Automatic Deploys' if you wish for Heroku to rebuild the app every time you push changes to Github
+    * Click 'Deploy Branch'
+    * Click 'View'
+
+* [Live link to the App](https://deedees-fitting-app.herokuapp.com/)    
+* [Live link to the Google Sheet](https://docs.google.com/spreadsheets/d/1g5nW55t43D_g49mGp38mo4rYHIyMCGGKmicDN2v5zaw/edit#gid=1680754323)
+
+## Credits 
+
+* Code Institute - LMS, Love Sandwiches, Tutor Support, Python Template
+* Stackoverflow
+* Geeksforgeeks
+* Youtube
+* Google Sheets for Developers
+* PEP8
+* W3Schools
+
+
+
+

@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import TipsPost, Comment
 from .forms import CommentForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class TipsPostList(generic.ListView):
@@ -37,7 +38,10 @@ class TipsPostDetail(View):
             
         )
 
+class CreateCommentView(LoginRequiredMixin, View):
+
     def post(self, request, slug, *args, **kwargs):
+        model = Comment
         queryset = TipsPost.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by('created')
@@ -47,11 +51,7 @@ class TipsPostDetail(View):
 
         comment_form = CommentForm(data=request.POST)
 
-        """
-
-        place edit function here?
-
-        """
+    
 
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
@@ -62,21 +62,20 @@ class TipsPostDetail(View):
         else:
             comment_form = CommentForm()
 
-        return render(
-            request, 
+        return render( 
+            request,
             "tips_post.html",
-            {
-                "post": post,
-                "comments": comments,
-                "commented": True,
-                "liked": liked,
-                "comment_form": CommentForm()
-            },
-            
+            { 
+                "post": post, 
+                "comments": comments, 
+                "commented": True, 
+                "comment_form": comment_form, 
+                "liked": liked 
+            }, 
         )
 
 
-class PostLike(View):
+class PostLike(LoginRequiredMixin, View):
     
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(TipsPost, slug=slug)
@@ -88,7 +87,7 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class EditComment(View):
+class EditComment(LoginRequiredMixin, View):
 
     def get(self, request, comment_id, *args, **kwargs):
         comment = get_object_or_404(Comment, id=comment_id)
@@ -113,7 +112,7 @@ class EditComment(View):
         return HttpResponseRedirect(reverse('post_detail', args=[comment.post.slug]))
 
 
-class DeleteComment(View):
+class DeleteComment(LoginRequiredMixin, View):
     def get(self, request, comment_id, *args, **kwargs):
         comment = get_object_or_404(Comment, id=comment_id)
         comment.delete()

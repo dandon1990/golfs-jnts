@@ -24,21 +24,21 @@
                 <div class="image-container">
                     {% if "placeholder" in post.stance_image.url %}
                     <img class="card-img-top"
-                        src="https://res.cloudinary.com/dochkwthb/image/upload/v1667923780/golf_instructor_cltelc.jpg">
+                        src="https://res.cloudinary.com/dochkwthb/image/upload/v1667923780/golf_instructor_cltelc.jpg" alt="placeholder image">
                     {% else %}
                     <img class="card-img-top post-images" src=" {{ post.stance_image.url }}">
                     {% endif %}
                 </div>
-                <p class="card-text ">{{ post.swing_content | safe }}</p>
+                <div class="card-text ">{{ post.swing_content | safe }}</div>
                 <div class="image-container">
                     {% if "placeholder" in post.swing_image.url %}
                     <img class="card-img-top"
-                        src="https://res.cloudinary.com/dochkwthb/image/upload/v1667923780/golf_instructor_cltelc.jpg">
+                        src="https://res.cloudinary.com/dochkwthb/image/upload/v1667923780/golf_instructor_cltelc.jpg" alt="placeholder image">
                     {% else %}
                     <img class="card-img-top post-images" src=" {{ post.swing_image.url }}">
                     {% endif %}
                 </div>
-                <p class="card-text">{{ post.swing_content | safe }}</p>
+                <div class="card-text">{{ post.swing_content | safe }}</div>
 
                 <div class="row">
                     <div class="col-1">
@@ -90,7 +90,7 @@
                             {{ comment.created }}
                         </span> wrote:
                     </p>
-                    {{ comment.body | linebreaks }}
+                    {{ comment.body }}
                 </div>
                 {% if comment.name == user.username %}
                 <!-- Button to edit comment -->
@@ -140,7 +140,7 @@
 
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
+                <form method="post" action="{% url 'post_comment' post.slug %}" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn btn-signup btn-lg">Post</button>
