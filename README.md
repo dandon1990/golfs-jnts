@@ -12,7 +12,7 @@ The Site is designed for golfers of all levels. It is a site they can visit and 
 
 Here is a flow of how the app should work.
 
-![Flow Diagram](/Assets/Documentation/flow_diagram.png)
+![Flow Diagram](/media/flow-tips.jpg)
 
 ## Features
 * The site features posts that include: 
@@ -27,9 +27,16 @@ Here is a flow of how the app should work.
         * An explanation of how long the swing should be and what the tempo should be.
         * A Comments section for users to read the conversation.
         * The ability to Edit and Delete their on comments.
-        
-<br>
-* The site’s home page Displays the most recent posts at the top of the page and then works back down the page in order of when they were created. At the top of the home page there is a navigation bar where the user can choose to register for an account if it’s their first time using the site or choose to login if they already have an account. There is also the option to sign-out after the user is logged in as well as the home button to take you back to the main page.
+
+![Home page](/media/Tips-home-page.jpg)
+* The site’s home page Displays the most recent posts at the top of the page and then works back down the page in order of when they were created. There is also the option to sign-out after the user is logged in as well as the home button to take you back to the main page.
+
+![Navigation](/media/navigation-tips.jpg)
+
+*  At the top of the home page there is a navigation bar where the user can choose to register for an account if it’s their first time using the site or choose to login if they already have an account.
+![Navigation Logout](/media/navigation-logout.jpg)
+
+* There is also the option to sign-out after the user is logged in as well as the home button to take you back to the main page.
 
 ![Shaft Flex Calculating](/Assets/Documentation/flex_calcualtion.png)
 

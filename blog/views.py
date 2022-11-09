@@ -14,7 +14,10 @@ class TipsPostList(generic.ListView):
 
 
 class TipsPostDetail(View):
-
+    """
+    This is the get method for retrieving the Tips Posts,
+    number of likes and comments on a post.
+    """
     def get(self, request, slug, *args, **kwargs):
         queryset = TipsPost.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -39,7 +42,11 @@ class TipsPostDetail(View):
 
 
 class CreateCommentView(LoginRequiredMixin, View):
-
+    """
+    This is the post method that allows the user to
+    post a comment on a post, where it will await admins
+    approval.
+    """
     def post(self, request, slug, *args, **kwargs):
         model = Comment
         queryset = TipsPost.objects.filter(status=1)
@@ -74,6 +81,11 @@ class CreateCommentView(LoginRequiredMixin, View):
 
 
 class PostLike(LoginRequiredMixin, View):
+    """
+    This is the method for posting a like on a 
+    post only when the user is logged in.
+    """
+
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(TipsPost, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -85,7 +97,11 @@ class PostLike(LoginRequiredMixin, View):
 
 
 class EditComment(LoginRequiredMixin, View):
-
+    """
+    This method is used to edit a comment that the 
+    user has post only when that user is logged in.
+    It then Redirects the user to the post.
+    """
     def get(self, request, comment_id, *args, **kwargs):
         comment = get_object_or_404(Comment, id=comment_id)
         form = CommentForm(instance=comment)
@@ -110,6 +126,10 @@ class EditComment(LoginRequiredMixin, View):
 
 
 class DeleteComment(LoginRequiredMixin, View):
+    """
+    This method deletes the comment that the user
+    has posted only when they are logged in.
+    """
     def get(self, request, comment_id, *args, **kwargs):
         comment = get_object_or_404(Comment, id=comment_id)
         comment.delete()
