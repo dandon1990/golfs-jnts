@@ -14,16 +14,25 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='tipspost',
             name='featured_image',
-            field=cloudinary.models.CloudinaryField(default='placeholder', max_length=255, verbose_name='Feautured Image'),
+            field=cloudinary.models.CloudinaryField(
+                default='placeholder',
+                max_length=255,
+                verbose_name='Feautured Image'),
         ),
         migrations.AlterField(
             model_name='tipspost',
             name='stance_image',
-            field=cloudinary.models.CloudinaryField(default='placeholder', max_length=255, verbose_name='Stance Image'),
+            field=cloudinary.models.CloudinaryField(
+                default='placeholder',
+                max_length=255,
+                verbose_name='Stance Image'),
         ),
         migrations.AlterField(
             model_name='tipspost',
             name='swing_image',
-            field=cloudinary.models.CloudinaryField(default='placeholder', max_length=255, verbose_name='Swing Image'),
+            field=cloudinary.models.CloudinaryField(
+                default='placeholder',
+                max_length=255,
+                verbose_name='Swing Image'),
         ),
     ]

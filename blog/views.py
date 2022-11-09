@@ -26,7 +26,7 @@ class TipsPostDetail(View):
             liked = True
 
         return render(
-            request, 
+            request,
             "tips_post.html",
             {
                 "post": post,
@@ -35,8 +35,8 @@ class TipsPostDetail(View):
                 "liked": liked,
                 "comment_form": CommentForm()
             },
-            
         )
+
 
 class CreateCommentView(LoginRequiredMixin, View):
 
@@ -51,8 +51,6 @@ class CreateCommentView(LoginRequiredMixin, View):
 
         comment_form = CommentForm(data=request.POST)
 
-    
-
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
@@ -62,21 +60,20 @@ class CreateCommentView(LoginRequiredMixin, View):
         else:
             comment_form = CommentForm()
 
-        return render( 
+        return render(
             request,
             "tips_post.html",
-            { 
-                "post": post, 
-                "comments": comments, 
-                "commented": True, 
-                "comment_form": comment_form, 
-                "liked": liked 
-            }, 
+            {
+                "post": post,
+                "comments": comments,
+                "commented": True,
+                "comment_form": comment_form,
+                "liked": liked
+            },
         )
 
 
 class PostLike(LoginRequiredMixin, View):
-    
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(TipsPost, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -108,12 +105,13 @@ class EditComment(LoginRequiredMixin, View):
             new_form = form.save(commit=False)
             new_form.post = comment.post
             new_form.save()
- 
-        return HttpResponseRedirect(reverse('post_detail', args=[comment.post.slug]))
+        return HttpResponseRedirect(
+            reverse('post_detail', args=[comment.post.slug]))
 
 
 class DeleteComment(LoginRequiredMixin, View):
     def get(self, request, comment_id, *args, **kwargs):
         comment = get_object_or_404(Comment, id=comment_id)
         comment.delete()
-        return HttpResponseRedirect(reverse('post_detail', args=[comment.post.slug]))
+        return HttpResponseRedirect(
+            reverse('post_detail', args=[comment.post.slug]))
