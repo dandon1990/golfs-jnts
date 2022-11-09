@@ -50,7 +50,9 @@ body {
     position: relative;
 }
 
-
+.post-images {
+    height: 40em!important;
+}
 
 .image-flash {
     position: absolute;

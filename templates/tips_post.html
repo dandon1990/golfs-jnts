@@ -26,7 +26,7 @@
                     <img class="card-img-top"
                         src="https://res.cloudinary.com/dochkwthb/image/upload/v1667923780/golf_instructor_cltelc.jpg">
                     {% else %}
-                    <img class="card-img-top" src=" {{ post.stance_image.url }}">
+                    <img class="card-img-top post-images" src=" {{ post.stance_image.url }}">
                     {% endif %}
                 </div>
                 <p class="card-text ">{{ post.swing_content | safe }}</p>
@@ -35,7 +35,7 @@
                     <img class="card-img-top"
                         src="https://res.cloudinary.com/dochkwthb/image/upload/v1667923780/golf_instructor_cltelc.jpg">
                     {% else %}
-                    <img class="card-img-top" src=" {{ post.swing_image.url }}">
+                    <img class="card-img-top post-images" src=" {{ post.swing_image.url }}">
                     {% endif %}
                 </div>
                 <p class="card-text">{{ post.swing_content | safe }}</p>
