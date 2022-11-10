@@ -14,6 +14,21 @@ Here is a flow of how the app should work.
 
 ![Flow Diagram](/media/flow-tips.jpg)
 
+## User Stories
+![User Stories](/media/user-stories.jpg)
+
+* As a Site User I can view a list of tips posts so that I can select one to read
+* As a Site User I can open a tips post so that see the whole tips post and read the insights
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+
+
+
 ## Features
 * The site features posts that include: 
     * On the Home page the site displays all of the different Tips that have been posted.
