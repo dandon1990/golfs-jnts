@@ -100,7 +100,8 @@ I have manually tested this project by doing the following:
     * If it is possible to edit or delete a comment created by another user when logged into the account.
         * My expected result was that I would not be able to edit or delete comments created by other users whilst logged into the account.
         * The result was that I could not delete a comment created by another user logged into the account.
-
+* There is a small piece of JavaScript that I tested manually:
+    * The code is a timout functions that clears the success messages when a user logins in or out succesfully. The messages clear after 3000ms automatically so the JavaScript functions properly.
 ### Bugs
 
 #### Solved Bugs 
