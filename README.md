@@ -2,7 +2,7 @@
 
 TiGOLF is a golf tips page where golfers can create an account and view different tips and can like and comment on the tips 
 
-[Here is a live link to the app](https://golf-jnts.herokuapp.com/)
+[Here is a live link to the site](https://golftips.herokuapp.com/)
 
 ![Responsive Tips](/media/tip-responsive.jpg)
 
