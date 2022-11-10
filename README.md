@@ -126,33 +126,47 @@ I solved this through breaking them up into mutiple strings or displaying them i
 * [Gitpod](https://gitpod.io/)
 * [Summernote](https://summernote.org/)
 * [Bootstrap](https://getbootstrap.com/)
-## Deployment
-* Create an account or log in at [Heroku](https://www.heroku.com/)
-* Create new app, 
-    * Add a unique name for your app (this app is called 'deedees-fitting-app')
-    * Choose your region
 
-* Click on Create New App
-* Navigate to the Settings tab
-* Under Config Vars store any sensitive data you saved in .json file. 
-    * Add a Key - CREDS, then copy the .json file and paste it into Value field 
-    * Add a Key - PORT and a Value 8000
-* Add buildpacks: 
-    * Add Python, then save changes
-    * Add Nodejs, then save changes
-    * Ensure Python is first and Nodejs second
 
-* Navigate to Deploy tab
-    * From Deployment Method select Github
-    * Connect to Github
-    * Search for repository name (club-shaft-fitter)
-    * Click 'Connect'
-    * Select 'Enable Automatic Deploys' if you wish for Heroku to rebuild the app every time you push changes to Github
-    * Click 'Deploy Branch'
-    * Click 'View'
+##  Deployment
 
-* [Live link to the App](https://deedees-fitting-app.herokuapp.com/)    
-* [Live link to the Google Sheet](https://docs.google.com/spreadsheets/d/1g5nW55t43D_g49mGp38mo4rYHIyMCGGKmicDN2v5zaw/edit#gid=1680754323)
+To deploy this page to Heroku from its GitHub repository, the following steps were taken:
+1. Clone this repository in Github
+2. Create the Heroku App:
+- Select "Create new app" in Heroku.
+- Choose a name for your app and select the location.
+
+3. Attach the Postgres database:
+- In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
+
+4. Prepare the environment and settings.py file:
+
+- In the Settings tab, click on Reveal Config Vars and copy the url next to DATABASE_URL.
+- In your GitPod workspace, create an env.py file in the main directory.
+- Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
+- Add the SECRET_KEY value to the Config Vars in Heroku.
+- Update the settings.py file to import the env file and add the SECRETKEY and DATABASE_URL file paths.
+- Update the Config Vars with the Cloudinary url, adding into the settings.py file also.
+- In settings.py add the following sections:
+Cloudinary to the INSTALLED_APPS list
+STATICFILE_STORAGE
+STATICFILES_DIRS
+STATIC_ROOT
+MEDIA_URL
+DEFAULT_FILE_STORAGE
+TEMPLATES_DIR
+Update DIRS in TEMPLATES with TEMPLATES_DIR
+Update ALLOWED_HOSTS with ['app_name.heroku.com', 'localhost']
+5. Store Static and Media files in Cloudinary and Deploy to Heroku:
+
+- Create three directories in the main directory; media, static and templates.
+- Create a file named "Procfile" in the main directory and add the following:
+- web: gunicorn project-name.wsgi
+- Log in to Heroku using the terminal heroku login -i.
+- Then run the following command: heroku git:remote -a vegan-a-eat. This will link the app to the Gitpod terminal.
+- After linking your app to your workspace, you can then deploy new versions of the app by running the command git push 
+heroku main and your app will be deployed to Heroku.
+
 
 ## Credits 
 
@@ -167,6 +181,7 @@ I solved this through breaking them up into mutiple strings or displaying them i
 * Google Sheets for Developers
 * PEP8
 * W3Schools
+* Angharad Caswell - Deployment steps
 
 
 
