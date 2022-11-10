@@ -4,7 +4,7 @@ TiGOLF is a golf tips page where golfers can create an account and view differen
 
 [Here is a live link to the app](https://golf-jnts.herokuapp.com/)
 
-![App Title](/Assets/Documentation/deedee.png)
+![Responsive Tips](/media/tip-responsive.jpg)
 
 ## How to use the Site
 
@@ -19,13 +19,19 @@ Here is a flow of how the app should work.
 
 * As a Site User I can view a list of tips posts so that I can select one to read
 * As a Site User I can open a tips post so that see the whole tips post and read the insights
-* 
-* 
-* 
-* 
-* 
-* 
-* 
+* As a Site Admin / Site User I can view the number of likes so that I can see what is popular and decide what is popular content
+* As a Site Admin / Site User I can view comments on tips posts so that can read the conversation and what user's would like in future
+* As a Site User I can register an account so that I can comment and and like tips posts
+* As a Site I can leave comments on a post so that join in the conversation and say what I would like to see
+* As a Site User I can like or unlike a tips post so that I can interact with the posted content
+* As a Site Admin I can approve or disapprove comments so that I can filter out unsuitable comments
+* As a Site User I can view a paginated list of tips posts so that easily select a tip to view
+* As a Site Admin I can create, read, update and delete tips posts so that I can manage the site's content
+* As a Site User I can edit or delete comments I have posted so that I can amend any mistakes I make after posting a comment
+
+[Here is LINK to the live project board](https://github.com/users/dandon1990/projects/7/views/1)
+
+
 
 
 
@@ -41,7 +47,7 @@ Here is a flow of how the app should work.
         * Image of the swing to take when playing the particular shot.
         * An explanation of how long the swing should be and what the tempo should be.
         * A Comments section for users to read the conversation.
-        * The ability to Edit and Delete their on comments.
+        * The ability for users to Edit and Delete their own comments.
 
 ![Home page](/media/Tips-home-page.jpg)
 * The site’s home page Displays the most recent posts at the top of the page and then works back down the page in order of when they were created. There is also the option to sign-out after the user is logged in as well as the home button to take you back to the main page.
@@ -53,18 +59,14 @@ Here is a flow of how the app should work.
 
 * There is also the option to sign-out after the user is logged in as well as the home button to take you back to the main page.
 
-![Shaft Flex Calculating](/Assets/Documentation/flex_calcualtion.png)
+![No comment](/media/no-comment.jpg)
 
-* The app updates a google sheet with all the all of the User's inputs and the recommendations for club and shaft types.
-![Google sheet of user input](/Assets/Documentation/google_sheet.png)  
+* A user will only be able to view the comments on the if they are not logged in. They won't be able to click the like button or comment on the post.
 
-* This can be really helpful to golf instructors and golf club fitters as it would let them see in advanced what kind of clubs a player would be able to use. 
-* It can be good for data analysis to see what playing ability uses what shaft and type of club as well as average distances.
+![Can comment](/media/can-comment.jpg)
 
-* The app uses validation and error-checking for all of the users inputs:
-    * Names can't have numbers or special characters
-    * Handicaps have to be within the limits of the R&A and USGA governing bodies of maximum 54.
-    * Player must pick between certain distances on the 3 distances asked for to keep silly answers being out into the app.
+* Once a user is logged in the can post a comment which will be approved by an admin member. The can also edit and delete their own comments but they cannot edit or delete comments from other users.
+
 
 
 ## Testing
