@@ -17,7 +17,7 @@
         </div>
     </div>
 </div>
-
+<!-- Container for displaying Tips Posts -->
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
@@ -41,7 +41,7 @@
                     {% endif %}
                 </div>
                 <div class="card-text">{{ post.swing_content | safe }}</div>
-
+                <!-- Row for allowing logged in users to like posts -->
                 <div class="row">
                     <div class="col-xs-3 col-sm-2 col-md-1 g-0">
                         <strong>
@@ -57,15 +57,14 @@
                             {% else %}
                             <span class="text-secondary"><i class="far fa-heart text-muted"></i></span>
                             {% endif %}
-                        <!-- The number of likes goes before the closing strong tag -->
+                        <!-- The number of likes -->
                         <span class="text-secondary text-muted">{{ post.number_of_likes }} </span>
                         </strong>
-                        
                     </div>
                     <div class="col-xs-3 col-sm-2 col-md-1 g-0">
                         {% with comments.count as total_comments %}
                         <strong class="text-secondary text-muted"><i class="far fa-comments"></i>
-                            <!-- Our total_comments variable -->
+                            <!-- The number of comments -->
                              {{ total_comments }}
                         </strong>
                         {% endwith %}
@@ -98,10 +97,10 @@
                 <!-- Button to edit comment -->
                 <button class="btn btn-primary"><a href="{% url 'edit' comment.id %}" class="white-text">Edit</a></button>
 
-                <!-- Button trigger modal --> 
+                <!-- Button trigger modal for deleteing a comment --> 
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button> 
 
-                <!-- Modal --> 
+                <!-- Modal for deleting a comment --> 
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"> 
                     <div class="modal-dialog"> 
                         <div class="modal-content"> 
@@ -119,17 +118,11 @@
                         </div> 
                     </div> 
                 </div>
-
-
-                
                 {% endif %}
-                
                 {% endfor %}
-                
-                
-                
             </div>
         </div>
+        <!-- Container -->
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
                 {% if commented %}
@@ -137,9 +130,7 @@
                     Your comment will be approved by Site Admin
                 </div>
                 {% else %}
-
                 {% if user.is_authenticated %}
-
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post" action="{% url 'post_comment' post.slug %}" style="margin-top: 1.3em;">
@@ -149,7 +140,6 @@
                 </form>
                 {% endif %}
                 {% endif %}
-
             </div>
         </div>
     </div>

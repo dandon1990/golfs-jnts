@@ -73,113 +73,59 @@ Here is a flow of how the app should work.
 
 I have manually tested this project by doing the following:
 
-* Given invalid inputs when asked for user's name:
-    * Entered nothing when name was reuested
-    * Entered numbers when the name was requested e.g(12345678890)
-    * Entered special characters when the name was requested e.g(,.<>/?\|;:@'[]{})
-* Each time an invalid input was entered into the Name request I expected to see an Error message to say that name couldn't be entered and this is what I seen.
+* Logging out of the account and checking:
+    * If it is possible to like a post.
+        * My expected result was that I wouldn't be able to like the post.
+        * The result was that I could not like the post.
+    * If it is possible to comment on a post.
+        * My expected result was that I wouldn't be able to comment on a post.
+        * The result was that I could not comment on the post.
+    * If it is possible to edit a comment on a post.
+        * My expected result was that I wouldn't be able to edit a comment on a post.
+        * The result was that I could not edit a comment on the post.
+    * If it is possible to delete a comment on a post.
+        * My expected result was that I wouldn't be able to delete a comment on a post.
+        * The result was that I could not delete a comment on the post.  
 
-![Name Validation](/Assets/Documentation/name_valid.png)
-
-
-* Given invalid inputs when asked for the User's Handicap:
-    * Entered a value higher than 54
-    * Entered a value lower than 1
-* Both times I expected to see an Error messsage saying that it was an invalid data input:
-    * Too high for values over 54
-    * Too Low for values under 1
-
-![Handicap Validation](/Assets/Documentation/handicap_valid.png)
-
-* Invalid inputs were also given for Pitching Wedge distance:
-    * Too high (any values over 170 yards)
-    * Too low (any values under 90 yards)
-* Both times I expected to see an Error messsage saying that it was an invalid data input:
-    * Too high for values over 170
-    * Too Low for values under 90
-
-![Pitching Wedge Validation](/Assets/Documentation/pwedge_valid.png)
-
-* Invalid inputs were also given for 6 Iron distance:
-    * Too high (any values over 220 yards)
-    * Too low (any values under 130 yards)
-* Both times I expected to see an Error messsage saying that it was an invalid data input:
-    * Too high for values over 220
-    * Too Low for values under 130
-
-![Six Iron Validation](/Assets/Documentation/six_iron_valid.png)
-
-* Invalid inputs were also given for Driver distance:
-    * Too high (any values over 350 yards)
-    * Too low (any values under 190 yards)
-* Both times I expected to see an Error messsage saying that it was an invalid data input:
-    * Too high for values over 350
-    * Too Low for values under 130
-
-![Driver Distance Vaildation](/Assets/Documentation/driver_valid.png)
-
-* I also done manual testing to make sure all the outcomes would be accurate for different combinations of inputs.
-
-* I tested a difference of less than 56 yards between 6 iron and pitching wedge distances.
-    * My expected result result was Cavity Backs
-
-        ![Cavity test](/Assets/Documentation/cav_test.png)
-
-* I tested a difference of more than 55 yards between 6 iron and pitching wedge distances but with the 6 iron distance less then 190.
-    * My expected result was Combo Set
-
-        ![Combo test](/Assets/Documentation/combo_test.png)
-
-* I tested a difference of more than 55 yards between 6 iron and pitching wedge distances but with the 6 iron distance more then 190.
-    * My expected result was Blades
-
-        ![Blades test](/Assets/Documentation/blade_test.png)
-
-* I done testing to make sure that there are different outcomes for shaft flex:
-
-    * I tested with different Driver distances of:
-        * Less than 213
-        * Between 213 - 262
-        * More then 262
-    
-    The reason these distances were tested is that they correspond to the different clubhead speeds in the function that chooses the flex of shaft for the user.
-    
-    * My expected result of distances less than 213 were Regular
-
-        ![Regular test](/Assets/Documentation/reg_test.png) 
-
-    * My expected result of distances between 213 and 262 was Stiff
-
-        ![Stiff test](/Assets/Documentation/stiff_test.png)
-
-    * My expected result of distances more than 262 was Extra-Stiff
-
-        ![Extra test](/Assets/Documentation/extra_test.png)
-
+* Logging into the account and checking:
+    * If it is possible to make a comment on a post.
+        * My expected result was that I would be able to make a comment and it would have to approved by admin
+        * The result was that I could post a comment and I have to wait for admin to approve it.
+    * If it is possible to edit a comment on a post created by the user logged in.
+        * My expected result was that I would be able to edit a comment created by the user logged in.
+        * The result was that I was able to edit a comment created by the user logged in.
+    * If it is possible to delete a comment created by the user logged into the account.
+        * My expected result was that I would be able to delete a comment created byt the user logged into the account.
+        * The result was that I could delete a comment created by the user logged into the account.
+    * If it is possible to edit or delete a comment created by another user when logged into the account.
+        * My expected result was that I would not be able to edit or delete comments created by other users whilst logged into the account.
+        * The result was that I could not delete a comment created by another user logged into the account.
 
 ### Bugs
 
 #### Solved Bugs 
-* I had an issue with line length when first passing the code through PEP8. A lot of f strings were too long (> 79 characters).
-I solved this through breaking them up into multiple f strings.
+* I had an issue with line length when first passing the code through PEP8. A lot of methods and variables were too long (> 79 characters).
+I solved this through breaking them up into mutiple strings or displaying them in a verticle manner.
 
 #### Remaing Bug
 * No bugs remaining
     
 #### Validator Testing
 * No errors were found when running the code through [PEP8](http://pep8online.com/)
+* No errors were found when running the HTML through [W3C](https://validator.w3.org/)
+* No errors were found when running the CSS through [Jigsaw](https://jigsaw.w3.org/css-validator/)
 
 ## Technologies
 
 * [Heroku](https://www.heroku.com/)
 * [Python](https://www.python.org/)
+* [Django](https://www.djangoproject.com/)
 * [Pip](https://pypi.org/project/pip/)
-* [colorama](https://pypi.org/project/colorama/)
-* [Pyfiglet](https://pypi.org/project/pyfiglet/0.7/)
 * [Git](https://git-scm.com/)
 * [Githib](https://github.com/)
 * [Gitpod](https://gitpod.io/)
-
+* [Summernote](https://summernote.org/)
+* [Bootstrap](https://getbootstrap.com/)
 ## Deployment
 * Create an account or log in at [Heroku](https://www.heroku.com/)
 * Create new app, 
@@ -210,7 +156,11 @@ I solved this through breaking them up into multiple f strings.
 
 ## Credits 
 
-* Code Institute - LMS, Love Sandwiches, Tutor Support, Python Template
+* Code Institute 
+    * LMS 
+    * I think there I Blog walkthrough project
+    * Hello DJango walkthrough project
+    * Tutor Support - Special mentions to Ger, Gemma and Rebecca
 * Stackoverflow
 * Geeksforgeeks
 * Youtube

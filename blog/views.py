@@ -82,7 +82,7 @@ class CreateCommentView(LoginRequiredMixin, View):
 
 class PostLike(LoginRequiredMixin, View):
     """
-    This is the method for posting a like on a 
+    This is the method for posting a like on a
     post only when the user is logged in.
     """
 
@@ -98,7 +98,7 @@ class PostLike(LoginRequiredMixin, View):
 
 class EditComment(LoginRequiredMixin, View):
     """
-    This method is used to edit a comment that the 
+    This method is used to edit a comment that the
     user has post only when that user is logged in.
     It then Redirects the user to the post.
     """
